@@ -1,0 +1,5 @@
+[ ] Add overlay for instructions
+[ ] Mobile responsive
+[ ] Pause / Play functionality
+[ ] Make entities small to fit more
+[ ] Add more characters
