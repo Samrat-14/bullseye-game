@@ -702,6 +702,53 @@ window.addEventListener("load", function () {
             this.gameOver = false;
         }
 
+        instructions(context) {
+            context.save();
+            context.fillStyle = "rgba(0, 0, 0, 0.5)";
+            context.fillRect(0, 0, this.width, this.height);
+            context.fillStyle = "white";
+            context.textAlign = "center";
+            context.shadowOffsetX = 4;
+            context.shadowOffsetY = 4;
+            context.shadowColor = "black";
+            let message1 = "Instructions";
+            let message2 =
+                "Save the hatchlings from being eaten by the green monsters";
+            let message3 = "Help them crawl to the bush and score points";
+            let message4 =
+                "Move the blue monster with the mouse to block enemies or push eggs";
+            let message5 = "Press SPACE to Start!!!";
+            context.font = "100px Bangers";
+            context.fillText(
+                message1,
+                this.width * 0.5,
+                this.height * 0.5 - 100
+            );
+            context.font = "40px Bangers";
+            context.fillText(
+                message2,
+                this.width * 0.5,
+                this.height * 0.5 + 10
+            );
+            context.fillText(
+                message3,
+                this.width * 0.5,
+                this.height * 0.5 + 60
+            );
+            context.fillText(
+                message4,
+                this.width * 0.5,
+                this.height * 0.5 + 110
+            );
+            context.font = "60px Bangers";
+            context.fillText(
+                message5,
+                this.width * 0.5,
+                this.height * 0.5 + 200
+            );
+            context.restore();
+        }
+
         init() {
             for (let i = 0; i < 5; i++) {
                 this.addEnemy();
@@ -742,6 +789,7 @@ window.addEventListener("load", function () {
     }
 
     const game = new Game(canvas);
+    game.instructions(ctx);
     game.init();
 
     let lastTime = 0;
@@ -752,5 +800,11 @@ window.addEventListener("load", function () {
         requestAnimationFrame(animate);
     }
 
-    animate(0);
+    let gameStarted = false;
+    window.addEventListener("keydown", (e) => {
+        if (e.key == " " && !gameStarted) {
+            gameStarted = true;
+            animate(0);
+        }
+    });
 });
