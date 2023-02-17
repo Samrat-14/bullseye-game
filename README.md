@@ -2,7 +2,7 @@
 
 A 2D game in vanilla javascript built from scratch with an in-game physics engine to detect collisions and interactions, sprites and movement controls.
 
-![Bullseye_screenshot](preview.png)
+![Bullseye_screenshot](preview1.png)
 
 <!-- TABLE OF CONTENTS -->
 <details>
